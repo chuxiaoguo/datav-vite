@@ -1,0 +1,64 @@
+{
+    "name": "datav-vite",
+    "version": "0.1.4",
+    "description": "快速构建数据可视化大屏模板",
+    "main": "dist/datav-vite.umd.js",
+    "module": "dist/datav-vite.esm.js",
+    "unpkg": "dist/datav-vite.min.js",
+    "scripts": {
+        "build": "cross-env NODE_ENV=production rollup --config build/rollup.config.js",
+        "build:ssr": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format cjs",
+        "build:es": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format es",
+        "build:unpkg": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format iife"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.7.5",
+        "@rollup/plugin-alias": "^2.2.0",
+        "@rollup/plugin-buble": "^0.20.0",
+        "@rollup/plugin-replace": "^2.2.1",
+        "babel-loader": "^8.0.6",
+        "babel-preset-env": "^1.7.0",
+        "babel-preset-latest": "^6.24.1",
+        "babel-preset-stage-3": "^6.24.1",
+        "cross-env": "^6.0.3",
+        "minimist": "^1.2.0",
+        "rollup": "^1.26.3",
+        "rollup-plugin-babel": "^4.3.3",
+        "rollup-plugin-commonjs": "^10.1.0",
+        "rollup-plugin-less": "^1.1.2",
+        "rollup-plugin-node-resolve": "^5.2.0",
+        "rollup-plugin-sourcemaps": "^0.6.2",
+        "rollup-plugin-terser": "^5.1.2",
+        "rollup-plugin-typescript2": "^0.27.1",
+        "rollup-plugin-vue": "5.1.1",
+        "vue": "^2.6.10",
+        "vue-template-compiler": "^2.6.10"
+    },
+    "engines": {
+        "node": ">=8",
+        "npm": ">=5"
+    },
+    "keywords": [
+        "vue",
+        "dataV",
+        "template",
+        "fast",
+        "dataV-template",
+        "dataV-vite"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/chuxiaoguo/dataV-vite"
+    },
+    "author": "chuxiaoguo <408755140@qq.com>",
+    "license": "MIT",
+    "files": [
+        "dist/*",
+        "src/**/*.vue",
+        "!src/lib-dev.vue"
+    ],
+    "dependencies": {
+        "throttle-debounce": "^2.1.0",
+        "vue-resize": "^0.5.0"
+    }
+}

@@ -1,0 +1,48 @@
+{
+    "compilerOptions": {
+      // 指定输出的es版本
+      "target": "esnext",
+      // 指定采用的模块系统
+      "module": "esnext",
+      // 启用所有严格类型检查选项
+      "strict": false,
+      // 从 tslib 导入辅助工具函数
+      "importHelpers": true,
+      // 指定模块解析方式
+      "moduleResolution": "node",
+      // 启用实验性的ES装饰器
+      "experimentalDecorators": false,
+      // 生成的文件会为兼容babel而添加__importStar和__importDefault的helper
+      "esModuleInterop": true,
+      // 允许从没有设置默认导出的模块中默认导入
+      "allowSyntheticDefaultImports": true,
+      // 是否生成 .map 文件
+      "sourceMap": true,
+      // 解析非相对模块名的基准目录
+      "baseUrl": ".",
+      // 启用严格的 null 检查
+      "strictNullChecks": false,
+      // 以严格模式解析每个模块并加入 'use strict'
+      "alwaysStrict": true,
+      // 禁止this 值为 any
+      "noImplicitThis": false,
+      // 禁止定义了但未使用的变量
+      "noUnusedLocals": true,
+      // 禁止定义了但未使用的参数
+      "noUnusedParameters": true,
+      "outDir": "bin-debug",
+      "lib": [
+        "es5",
+        "dom",
+        "es2015.promise",
+        "esnext"
+      ],
+      "types": ["node"],
+      "typeRoots": ["./src/types", "node_modules/@types"],
+      "declaration": true,
+      "declarationDir": "dist/types"
+    },
+    "include": [
+      "src",
+    ]
+}   
