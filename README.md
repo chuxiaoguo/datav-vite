@@ -17,6 +17,9 @@
 一个父亲组件负责渲染背景图和提供缩放算法
 一个子组件为不同的图形组件提供包装，使其具备绝对布局的功能
 
+## 演示效果
+![https://github.com/chuxiaoguo/datav-vite/tree/master/assets/datav-pre.jpg](https://github.com/chuxiaoguo/datav-vite/tree/master/assets/datav-pre.jpg]))
+
 ## 在线demo
 [点击这里查看](https://chuxiaoguo.github.io/datav-vite/)
 
@@ -77,17 +80,44 @@ export default {
 </script>
 ```
 ## api
-|  Attributes|  Description | Type | Default |
+
+### DataVTemplate属性api
+
+``` typescript
+const enum ScaleMode {
+    // 根据屏幕的分辨率，等比缩放
+    EQUAL = 1,
+    // 宽度铺满，高度等比例缩放
+    HSCALE = 2,
+    // 高度铺满，宽度等比例缩放
+    WSCALE = 3,
+}
+
+interface Palette {
+    // 背景色，无背景图时，用背景色填充
+    backgroundColor: string;
+    // 背景图
+    backgroundImage: '',
+}
+```
+|  属性|  描述 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| lang | init language lang | String | zh-CN |
-| scale | ruler scale size | Number | 2 |
-| thick | thick size | Number | 16 |
-| width | the window width of the currently loaded ruler  | Number | - |
-| height | the window height of the currently loaded ruler  | Number | - |
-| startX | x at the beginning of the ruler | Number | 0 |
-| startY | y at the beginning of the ruler | Number | 0 |
-| shadow |  size and the start coordinates on the ruler of the shadow  | Shadow | 0 |
-| startY | y at the beginning of the ruler | Number | {x: 200,y: 100,width: 200,height: 400} |
-| horLineArr | Initial values for horizontal reference lines | Array<number> | [] |
-| verLineArr | Initial values for vertical reference lines  | Array<number> | [] |
-| palette | the palette of sketch ruler | Palette | {bgColor: 'rgba(225,225,225, 0)',longfgColor: '#BABBBC',shortfgColor: '#C8CDD0',fontColor: '#7D8694', shadowColor: '#E8E8E8',lineColor: '#EB5648', borderColor: '#DADADC',cornerActiveColor: 'rgb(235, 86, 72, 0.6)',} |
+| screenW                | 屏幕分辨率的宽度          | Number  | 1920 |
+| screenH                | 屏幕分辨率的高度          | Number  | 1080 |
+| scaleMode              | 屏幕预览类型             | Number   | (ScaleMode) | 3 |
+| disabledBackgroundFill | 禁止超出的背景以背景图填充  | Boolean | false |
+| palette                | 色盘                    | Palette  | { backgroundColor: '#000' } |
+
+### DataVCell属性api
+``` typescript
+const enum PartStyle {
+    width: number,
+    height: number,
+    left: number,
+    top: number,
+    zIndex: number,
+}
+```
+|  属性|  描述 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| partStyle    |  赋予一个组件为绝对布局，需要用户输入该组件的宽高，位置和组件的堆叠顺序  | PartStyle  | - |
