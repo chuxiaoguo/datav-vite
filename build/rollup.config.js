@@ -12,10 +12,6 @@ import minimist from 'minimist';
 // import babel from 'rollup-plugin-babel' // rollup 的 babel 插件，ES6转ES5
 import buble from '@rollup/plugin-buble';
 
-const resolveFile = function(filePath) {
-    return path.join(__dirname, '..', filePath)
-}
-
 import os from 'os';
 const cpuNums = os.cpus().length;
 const json = require('../package.json')
@@ -67,6 +63,7 @@ const baseConfig = {
 const external = [
     "lodash.throttle",
     "vue-resize",
+    "Vue",
 ];
 
 // UMD/IIFE shared settings: output.globals

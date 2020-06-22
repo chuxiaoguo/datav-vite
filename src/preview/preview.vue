@@ -1,9 +1,5 @@
 <template>
     <div class="pre-container">
-        <resize-observer @notify="handleResize" />
-        <div class="pre-loading"></div>
-        <!-- 页面弹框 -->
-        <div class="pre-page-popper"></div>
         <!-- 显示画布 -->
         <div class="dashboard"
             :style="dashBoard">
@@ -24,8 +20,6 @@
     </div>
 </template>
 <script lang="ts">
-import ResizeObserver from 'vue-resize';
-// import throttle from 'throttle-debounce';
 
 const enum ScaleMode {
     EQUAL = 1,
@@ -35,9 +29,6 @@ const enum ScaleMode {
 
 export default {
     name: 'DataVTemplate',
-    components: {
-        ResizeObserver
-    },
     props: {
         screenW: {
             type: Number,
@@ -50,6 +41,10 @@ export default {
         scaleMode: {
             type: Number,
             default: ScaleMode.WSCALE,
+        },
+        disabledBackgroundFill: {
+            type: Boolean,
+            default: false,
         },
         palette: {
             type: Object,
@@ -92,7 +87,7 @@ export default {
         preImg(): any {
             const bgImage = this.currentBgImage || 'none';
             return {
-                backgroundImage: `url(${bgImage})`,
+                backgroundImage: this.disabledBackgroundFill ? 'none' : `url(${bgImage})`,
                 backgroundColor: `${this.currentBgColor}`,
                 backgroundSize: this.backgroundSize,
                 backgroundPosition: this.backgroundPosition,

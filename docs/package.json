@@ -1,25 +1,25 @@
 {
-  "name": "hello-world",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
-  },
-  "dependencies": {
-    "@jiaminghi/data-view": "^2.9.2",
-    "datav-vite": "^0.1.4",
-    "echarts": "^4.8.0",
-    "vue": "^2.6.11"
-  },
-  "devDependencies": {
-    "@vue/cli-plugin-typescript": "^4.4.0",
-    "@vue/cli-service": "^4.4.0",
-    "compression-webpack-plugin": "^4.0.0",
-    "node-sass": "^4.12.0",
-    "sass-loader": "^8.0.2",
-    "terser-webpack-plugin": "^3.0.6",
-    "typescript": "~3.9.3",
-    "vue-template-compiler": "^2.6.11"
-  }
+    "name": "datav-vite-template",
+    "version": "0.2.0",
+    "private": true,
+    "scripts": {
+        "serve": "vue-cli-service serve",
+        "build": "vue-cli-service build"
+    },
+    "dependencies": {
+        "@jiaminghi/data-view": "^2.9.2",
+        "datav-vite": "^0.1.4",
+        "echarts": "^4.8.0",
+        "vue": "^2.6.11"
+    },
+    "devDependencies": {
+        "@vue/cli-plugin-typescript": "^4.4.0",
+        "@vue/cli-service": "^4.4.0",
+        "compression-webpack-plugin": "^4.0.0",
+        "node-sass": "^4.12.0",
+        "sass-loader": "^8.0.2",
+        "terser-webpack-plugin": "^3.0.6",
+        "typescript": "~3.9.3",
+        "vue-template-compiler": "^2.6.11"
+    }
 }

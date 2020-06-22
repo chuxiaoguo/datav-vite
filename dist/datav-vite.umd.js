@@ -1,9 +1,6 @@
-'use strict';Object.defineProperty(exports,'__esModule',{value:true});function _interopDefault(e){return(e&&(typeof e==='object')&&'default'in e)?e['default']:e}var ResizeObserver=_interopDefault(require('vue-resize'));var this$1 = undefined;
+'use strict';Object.defineProperty(exports,'__esModule',{value:true});var this$1 = undefined;
 var script = {
     name: 'DataVTemplate',
-    components: {
-        ResizeObserver: ResizeObserver
-    },
     props: {
         screenW: {
             type: Number,
@@ -16,6 +13,10 @@ var script = {
         scaleMode: {
             type: Number,
             default: 3 /* WSCALE */,
+        },
+        disabledBackgroundFill: {
+            type: Boolean,
+            default: false,
         },
         palette: {
             type: Object,
@@ -58,7 +59,7 @@ var script = {
         preImg: function preImg() {
             var bgImage = this.currentBgImage || 'none';
             return {
-                backgroundImage: ("url(" + bgImage + ")"),
+                backgroundImage: this.disabledBackgroundFill ? 'none' : ("url(" + bgImage + ")"),
                 backgroundColor: ("" + (this.currentBgColor)),
                 backgroundSize: this.backgroundSize,
                 backgroundPosition: this.backgroundPosition,
@@ -85,6 +86,10 @@ var script = {
         onPolling: function onPolling() {
             return (this.projectObj && this.projectObj.onPolling) || false;
         },
+    },
+    mounted: function mounted() {
+        this.initScreenDom();
+        this.calLayoutProps();
     },
     methods: {
         initScreenDom: function initScreenDom() {
@@ -153,11 +158,7 @@ var script = {
                 this$1.calLayoutProps();
             });
         },
-    },
-    mounted: function mounted() {
-        this.initScreenDom();
-        this.calLayoutProps();
-    },
+    }
 };function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
     if (typeof shadowMode !== 'boolean') {
         createInjectorSSR = createInjector;
@@ -275,19 +276,19 @@ function renderStyles(styles) {
 var __vue_script__ = script;
 
 /* template */
-var __vue_render__ = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"pre-container"},[_c('resize-observer',{on:{"notify":_vm.handleResize}}),_vm._ssrNode(" <div class=\"pre-loading\"></div> <div class=\"pre-page-popper\"></div> "),_vm._ssrNode("<div class=\"dashboard\""+(_vm._ssrStyle(null,_vm.dashBoard, null))+">","</div>",[_vm._ssrNode("<div class=\"pre-image\""+(_vm._ssrStyle(null,_vm.preImg, null))+"></div> "),_vm._ssrNode("<div class=\"pos-margin\""+(_vm._ssrStyle(null,_vm.marginBlock, null))+">","</div>",[_vm._ssrNode("<div class=\"part-layout\" style=\"position: relative;\">","</div>",[_vm._ssrNode("<div class=\"scene\""+(_vm._ssrStyle(null,_vm.scene, null))+">","</div>",[_vm._t("default")],2)])])],2)],2)};
+var __vue_render__ = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"pre-container"},[_vm._ssrNode("<div class=\"dashboard\""+(_vm._ssrStyle(null,_vm.dashBoard, null))+">","</div>",[_vm._ssrNode("<div class=\"pre-image\""+(_vm._ssrStyle(null,_vm.preImg, null))+"></div> "),_vm._ssrNode("<div class=\"pos-margin\""+(_vm._ssrStyle(null,_vm.marginBlock, null))+">","</div>",[_vm._ssrNode("<div class=\"part-layout\" style=\"position: relative;\">","</div>",[_vm._ssrNode("<div class=\"scene\""+(_vm._ssrStyle(null,_vm.scene, null))+">","</div>",[_vm._t("default")],2)])])],2)])};
 var __vue_staticRenderFns__ = [];
 
   /* style */
   var __vue_inject_styles__ = function (inject) {
     if (!inject) { return }
-    inject("data-v-249539cc_0", { source: "body{overflow:hidden}.pre-container{width:100%;height:100%}.pre-container .dashboard{position:absolute;top:0;left:0;right:0;bottom:0}.pre-container .dashboard .pre-image{width:100%;height:100%;position:absolute}.pre-container .dashboard .scene{position:relative;background-color:'#fff';user-select:none;width:100%;height:100%;transform-origin:0 0;box-shadow:0 0 10px 0 rgba(0,0,0,.5);transition:all .3s linear;overflow:hidden}", map: undefined, media: undefined });
+    inject("data-v-6ba527ef_0", { source: "body{overflow:hidden}.pre-container{width:100%;height:100%}.pre-container .dashboard{position:absolute;top:0;left:0;right:0;bottom:0}.pre-container .dashboard .pre-image{width:100%;height:100%;position:absolute}.pre-container .dashboard .scene{position:relative;background-color:'#fff';user-select:none;width:100%;height:100%;transform-origin:0 0;box-shadow:0 0 10px 0 rgba(0,0,0,.5);transition:all .3s linear;overflow:hidden}", map: undefined, media: undefined });
 
   };
   /* scoped */
   var __vue_scope_id__ = undefined;
   /* module identifier */
-  var __vue_module_identifier__ = "data-v-249539cc";
+  var __vue_module_identifier__ = "data-v-6ba527ef";
   /* functional template */
   var __vue_is_functional_template__ = false;
   /* style inject shadow dom */
@@ -322,7 +323,11 @@ var script$1 = {
             type: Object,
             default: function default$1() {
                 return {
-                    partId: ''
+                    width: 0,
+                    height: 0,
+                    left: 0,
+                    top: 0,
+                    zIndex: 0,
                 };
             }
         },
@@ -338,9 +343,6 @@ var script$1 = {
                 zIndex: this.partStyle.zIndex,
             };
         }
-    },
-    mounted: function mounted() {
-        console.log("11111111");
     }
 };/* script */
 var __vue_script__$1 = script$1;
@@ -354,7 +356,7 @@ var __vue_staticRenderFns__$1 = [];
   /* scoped */
   var __vue_scope_id__$1 = undefined;
   /* module identifier */
-  var __vue_module_identifier__$1 = "data-v-793fc3ee";
+  var __vue_module_identifier__$1 = "data-v-be17a702";
   /* functional template */
   var __vue_is_functional_template__$1 = false;
   /* style inject */
@@ -380,12 +382,10 @@ var __vue_staticRenderFns__$1 = [];
 __vue_component__$1.install = function (Vue) {
     Vue.component(__vue_component__$1.name, __vue_component__$1);
 };// Import vue comp
-console.log(__vue_component__$1);
 // Declare install function executed by Vue.use()
 function install(Vue) {
-    if (install.installed)
-        { return; }
-    install.installed = true;
+    // if ((install as any).installed) return;
+    // (install as any).installed = true;
     Vue.component(__vue_component__.name, __vue_component__);
     Vue.component(__vue_component__$1.name, __vue_component__$1);
 }

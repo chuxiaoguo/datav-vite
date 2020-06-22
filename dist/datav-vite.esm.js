@@ -1,11 +1,6 @@
-import ResizeObserver from 'vue-resize';
-
 var this$1 = undefined;
 var script = {
     name: 'DataVTemplate',
-    components: {
-        ResizeObserver: ResizeObserver
-    },
     props: {
         screenW: {
             type: Number,
@@ -18,6 +13,10 @@ var script = {
         scaleMode: {
             type: Number,
             default: 3 /* WSCALE */,
+        },
+        disabledBackgroundFill: {
+            type: Boolean,
+            default: false,
         },
         palette: {
             type: Object,
@@ -60,7 +59,7 @@ var script = {
         preImg: function preImg() {
             var bgImage = this.currentBgImage || 'none';
             return {
-                backgroundImage: ("url(" + bgImage + ")"),
+                backgroundImage: this.disabledBackgroundFill ? 'none' : ("url(" + bgImage + ")"),
                 backgroundColor: ("" + (this.currentBgColor)),
                 backgroundSize: this.backgroundSize,
                 backgroundPosition: this.backgroundPosition,
@@ -87,6 +86,10 @@ var script = {
         onPolling: function onPolling() {
             return (this.projectObj && this.projectObj.onPolling) || false;
         },
+    },
+    mounted: function mounted() {
+        this.initScreenDom();
+        this.calLayoutProps();
     },
     methods: {
         initScreenDom: function initScreenDom() {
@@ -155,11 +158,7 @@ var script = {
                 this$1.calLayoutProps();
             });
         },
-    },
-    mounted: function mounted() {
-        this.initScreenDom();
-        this.calLayoutProps();
-    },
+    }
 };
 
 function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
@@ -294,13 +293,13 @@ function addStyle(id, css) {
 var __vue_script__ = script;
 
 /* template */
-var __vue_render__ = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"pre-container"},[_c('resize-observer',{on:{"notify":_vm.handleResize}}),_vm._v(" "),_c('div',{staticClass:"pre-loading"}),_vm._v(" "),_c('div',{staticClass:"pre-page-popper"}),_vm._v(" "),_c('div',{staticClass:"dashboard",style:(_vm.dashBoard)},[_c('div',{staticClass:"pre-image",style:(_vm.preImg)}),_vm._v(" "),_c('div',{staticClass:"pos-margin",style:(_vm.marginBlock)},[_c('div',{staticClass:"part-layout",staticStyle:{"position":"relative"}},[_c('div',{staticClass:"scene",style:(_vm.scene)},[_vm._t("default")],2)])])])],1)};
+var __vue_render__ = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"pre-container"},[_c('div',{staticClass:"dashboard",style:(_vm.dashBoard)},[_c('div',{staticClass:"pre-image",style:(_vm.preImg)}),_vm._v(" "),_c('div',{staticClass:"pos-margin",style:(_vm.marginBlock)},[_c('div',{staticClass:"part-layout",staticStyle:{"position":"relative"}},[_c('div',{staticClass:"scene",style:(_vm.scene)},[_vm._t("default")],2)])])])])};
 var __vue_staticRenderFns__ = [];
 
   /* style */
   var __vue_inject_styles__ = function (inject) {
     if (!inject) { return }
-    inject("data-v-249539cc_0", { source: "body{overflow:hidden}.pre-container{width:100%;height:100%}.pre-container .dashboard{position:absolute;top:0;left:0;right:0;bottom:0}.pre-container .dashboard .pre-image{width:100%;height:100%;position:absolute}.pre-container .dashboard .scene{position:relative;background-color:'#fff';user-select:none;width:100%;height:100%;transform-origin:0 0;box-shadow:0 0 10px 0 rgba(0,0,0,.5);transition:all .3s linear;overflow:hidden}", map: undefined, media: undefined });
+    inject("data-v-6ba527ef_0", { source: "body{overflow:hidden}.pre-container{width:100%;height:100%}.pre-container .dashboard{position:absolute;top:0;left:0;right:0;bottom:0}.pre-container .dashboard .pre-image{width:100%;height:100%;position:absolute}.pre-container .dashboard .scene{position:relative;background-color:'#fff';user-select:none;width:100%;height:100%;transform-origin:0 0;box-shadow:0 0 10px 0 rgba(0,0,0,.5);transition:all .3s linear;overflow:hidden}", map: undefined, media: undefined });
 
   };
   /* scoped */
@@ -347,7 +346,11 @@ var script$1 = {
             type: Object,
             default: function default$1() {
                 return {
-                    partId: ''
+                    width: 0,
+                    height: 0,
+                    left: 0,
+                    top: 0,
+                    zIndex: 0,
                 };
             }
         },
@@ -363,9 +366,6 @@ var script$1 = {
                 zIndex: this.partStyle.zIndex,
             };
         }
-    },
-    mounted: function mounted() {
-        console.log("11111111");
     }
 };
 
@@ -411,12 +411,10 @@ __vue_component__$1.install = function (Vue) {
 };
 
 // Import vue comp
-console.log(__vue_component__$1);
 // Declare install function executed by Vue.use()
 function install(Vue) {
-    if (install.installed)
-        { return; }
-    install.installed = true;
+    // if ((install as any).installed) return;
+    // (install as any).installed = true;
     Vue.component(__vue_component__.name, __vue_component__);
     Vue.component(__vue_component__$1.name, __vue_component__$1);
 }

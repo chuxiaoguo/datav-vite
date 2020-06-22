@@ -1,6 +1,6 @@
 {
     "name": "datav-vite",
-    "version": "0.1.4",
+    "version": "1.0.0",
     "description": "快速构建数据可视化大屏模板",
     "main": "dist/datav-vite.umd.js",
     "module": "dist/datav-vite.esm.js",

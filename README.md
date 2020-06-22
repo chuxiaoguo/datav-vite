@@ -1,5 +1,5 @@
 
-<p>English<a href="https://github.com/chuxiaoguo/vue-sketch-ruler"> | 简体中文</a></p>
+<p><a href="https://github.com/chuxiaoguo/datav-vite/blob/master/README.en.md">English</a> | 简体中文</p>
 
 ## datav-vite
 
@@ -30,10 +30,6 @@ npm install --save datav-vite
 import DatavVite from 'datav-vite';
 Vue.use(DatavVite);
 ```
-
-## 未来支持的功能
-
-- [] 国际化
 
 ## 使用
 ```
@@ -81,4 +77,17 @@ export default {
 </script>
 ```
 ## api
-待续...
+|  Attributes|  Description | Type | Default |
+| --- | --- | --- | --- |
+| lang | init language lang | String | zh-CN |
+| scale | ruler scale size | Number | 2 |
+| thick | thick size | Number | 16 |
+| width | the window width of the currently loaded ruler  | Number | - |
+| height | the window height of the currently loaded ruler  | Number | - |
+| startX | x at the beginning of the ruler | Number | 0 |
+| startY | y at the beginning of the ruler | Number | 0 |
+| shadow |  size and the start coordinates on the ruler of the shadow  | Shadow | 0 |
+| startY | y at the beginning of the ruler | Number | {x: 200,y: 100,width: 200,height: 400} |
+| horLineArr | Initial values for horizontal reference lines | Array<number> | [] |
+| verLineArr | Initial values for vertical reference lines  | Array<number> | [] |
+| palette | the palette of sketch ruler | Palette | {bgColor: 'rgba(225,225,225, 0)',longfgColor: '#BABBBC',shortfgColor: '#C8CDD0',fontColor: '#7D8694', shadowColor: '#E8E8E8',lineColor: '#EB5648', borderColor: '#DADADC',cornerActiveColor: 'rgb(235, 86, 72, 0.6)',} |

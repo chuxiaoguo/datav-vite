@@ -1,8 +1,8 @@
 import DataVTemplate from './preview.vue';
-import { VueConstructor } from 'vue';
+import { PluginObject } from 'vue';
 
 /* istanbul ignore next */
-(DataVTemplate as VueConstructor).install = function(Vue) {
+(DataVTemplate as unknown as PluginObject<any>).install = function(Vue) {
   Vue.component(DataVTemplate.name, DataVTemplate);
 };
 

@@ -12,7 +12,11 @@ export default {
             type: Object,
             default() {
                 return {
-                    partId: ''
+                    width: 0,
+                    height: 0,
+                    left: 0,
+                    top: 0,
+                    zIndex: 0,
                 };
             }
         },

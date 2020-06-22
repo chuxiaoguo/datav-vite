@@ -4,8 +4,8 @@ import DataVCell from './cell';
 
 // Declare install function executed by Vue.use()
 function install(Vue) {
-    if ((install as any).installed) return;
-    (install as any).installed = true;
+    // if ((install as any).installed) return;
+    // (install as any).installed = true;
     Vue.component(DataVTemplate.name, DataVTemplate);
     Vue.component(DataVCell.name, DataVCell);
 }

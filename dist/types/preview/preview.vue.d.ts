@@ -5,9 +5,6 @@ declare const enum ScaleMode {
 }
 declare const _default: {
     name: string;
-    components: {
-        ResizeObserver: any;
-    };
     props: {
         screenW: {
             type: NumberConstructor;
@@ -20,6 +17,10 @@ declare const _default: {
         scaleMode: {
             type: NumberConstructor;
             default: ScaleMode;
+        };
+        disabledBackgroundFill: {
+            type: BooleanConstructor;
+            default: boolean;
         };
         palette: {
             type: ObjectConstructor;
@@ -51,6 +52,7 @@ declare const _default: {
         scene(): any;
         onPolling(): boolean;
     };
+    mounted(): void;
     methods: {
         initScreenDom(): void;
         calLayoutProps(): void;
@@ -59,6 +61,5 @@ declare const _default: {
          */
         handleResize: () => void;
     };
-    mounted(): void;
 };
 export default _default;
