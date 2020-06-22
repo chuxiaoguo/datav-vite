@@ -18,7 +18,10 @@
 一个子组件为不同的图形组件提供包装，使其具备绝对布局的功能
 
 ## 演示效果
-![https://github.com/chuxiaoguo/datav-vite/tree/master/assets/datav-pre.jpg](https://github.com/chuxiaoguo/datav-vite/blob/master/assets/datav-pre.jpg)
+
+
+![[avatar](https://chuantu.xyz/t6/739/1592846042x992248267.jpg)](https://chuantu.xyz/t6/739/1592846042x992248267.jpg)
+
 
 ## 在线demo
 [点击这里查看](https://chuxiaoguo.github.io/datav-vite/)
@@ -104,7 +107,7 @@ interface Palette {
 | --- | --- | --- | --- |
 | screenW                | 屏幕分辨率的宽度          | Number  | 1920 |
 | screenH                | 屏幕分辨率的高度          | Number  | 1080 |
-| scaleMode              | 屏幕预览类型             | Number   | (ScaleMode) | 3 |
+| scaleMode              | 屏幕预览类型             | Number (ScaleMode) | 3 |
 | disabledBackgroundFill | 禁止超出的背景以背景图填充  | Boolean | false |
 | palette                | 色盘                    | Palette  | { backgroundColor: '#000' } |
 
