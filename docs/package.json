@@ -16,7 +16,7 @@
         "@vue/cli-plugin-typescript": "^4.4.0",
         "@vue/cli-service": "^4.4.0",
         "compression-webpack-plugin": "^4.0.0",
-        "node-sass": "^4.12.0",
+        "node-sass": "^7.0.0",
         "sass-loader": "^8.0.2",
         "terser-webpack-plugin": "^3.0.6",
         "typescript": "~3.9.3",
