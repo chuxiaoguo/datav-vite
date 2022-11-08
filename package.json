@@ -30,7 +30,7 @@
         "rollup-plugin-sourcemaps": "^0.6.2",
         "rollup-plugin-terser": "^5.1.2",
         "rollup-plugin-typescript2": "^0.27.1",
-        "rollup-plugin-vue": "5.1.1",
+        "rollup-plugin-vue": "6.0.0",
         "vue": "^2.6.10",
         "vue-template-compiler": "^2.6.10"
     },
